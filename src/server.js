@@ -1,13 +1,16 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
+const PORT = 4002;
+
 app.use(express.json());
-const PORT=3001;
-const categoryRoutes=require('./routes/category');
-const productRoutes=require('./routes/products');
-app.use('/categories' , categoryRoutes);
-app.use('/products' , productRoutes);
+const categoryRoutes = require('./routes/category'); 
+const productRoutes = require('./routes/products'); 
+const ingredientsRoutes = require('./routes/ingredients'); 
+
+app.use('/categories', categoryRoutes);
+app.use('/products', productRoutes);
+app.use('/ingredients', ingredientsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Sunucu Çalıştı`);
-  });
+});
