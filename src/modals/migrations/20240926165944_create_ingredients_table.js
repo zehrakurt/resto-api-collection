@@ -1,3 +1,4 @@
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
@@ -10,7 +11,6 @@ exports.up = function(knex) {
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.timestamp('updated_at').nullable();
         table.timestamp('deleted_at').nullable();
-
     })   
 };
 

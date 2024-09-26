@@ -7,9 +7,7 @@ const İngredients ={
     getById:(id)=>{
         return knex ('ingredients').where({id}).first()
     },
-   create:(ingredients)=>{
-    return knex('ingredients').insert(ingredients).returning('*')
-   },
+
     
    update: (id, ingredients) => {return knex('ingredients').where({id})
         .update({

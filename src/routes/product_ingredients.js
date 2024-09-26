@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const İngredients = require('../modals/ingredients'); 
+const Productingredients = require('../modals/product_ingredients'); 
 
 router.get('/', async (req, res) => {
     try {
-        const ingredients = await İngredients.getAll(); 
-        res.json(ingredients);
+        const product_ingredients= await Productingredients.getAll(); 
+        res.json(product_ingredients);
     } catch (error) {
         res.status(400).json({ message: 'Hata: ' + error.message }); 
     }
@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
 
 router.get('/:id',async (req,res)=>{
     try{
-const ingredients=await İngredients.getById(req.params.id)
-if(!ingredients){
+const product_ingredients=await Productingredients.getById(req.params.id)
+if(!product_ingredients){
     return res.status(404).json({message:"Kayıt Bulunamadı"})
-} res.json(ingredients);
+} res.json(product_ingredients);
     }catch(error){
         res.status(400).json({message:'error'})
     }
@@ -26,8 +26,8 @@ if(!ingredients){
 
 router.patch('/:id',async (req,res)=>{
     try{
-const updatedİngredients=await İngredients.update(req.params.id,req.body)
-res.json(updatedİngredients)
+const updatedProduct_ingredients=await Productingredients.update(req.params.id,req.body)
+res.json(updatedProduct_ingredients)
     }catch(error){
         res.status(400).json({message:'error'})
     }
@@ -37,8 +37,8 @@ res.json(updatedİngredients)
 
 router.delete('/:id', async(req,res)=>{
     try {
-        const deletedİngredients=await İngredients.delete(req.params.id)
-        res.json(deletedİngredients)
+        const deletedProduct_ingredients=await Productingredients.delete(req.params.id)
+        res.json(deletedProduct_ingredients)
     } catch (error) {
         res.status(400).json({message:'error'})
     }
