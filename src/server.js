@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 4002;
+const PORT = 3003;
 
 app.use(express.json());
 const categoryRoutes = require('./routes/category'); 

@@ -30,6 +30,7 @@ const updatedProduct_ingredients=await Productingredients.update(req.params.id,r
 res.json(updatedProduct_ingredients)
     }catch(error){
         res.status(400).json({message:'error'})
+        console.error('Hata detayları:', error);
     }
 });
 

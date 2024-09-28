@@ -8,13 +8,15 @@ const Productingredients ={
         return knex ('product_ingredients').where({id}).first()
     },
     
-   update: (id, product_ingredients) => {return knex('product_ingredients').where({id})
-        .update({
-            ...product_ingredients,               
-            updated_at: new Date()      
-        })
-        .returning('*');
-},
+    update: (id, product_ingredients) => {
+        return knex('product_ingredients').where({ id })
+            .update({
+                ...product_ingredients,
+                
+            })
+            .returning('*');
+    },
+    
 delete: (id) => {
     return knex('product_ingredients').where({ id }).del().returning('*');
 },

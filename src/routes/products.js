@@ -4,7 +4,7 @@ const Product = require('../modals/products');
 
 router.get('/', async (req, res) => {
     try {
-        const products = await Product.getAll();
+        const products = await Product.getAll(req.query);
         res.json(products);
     } catch (error) {
         console.error('Error fetching products:', error); 
